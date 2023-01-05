@@ -1,0 +1,28 @@
+<h1 id="tableLabel">Extra vesta</h1>
+
+<p>This component demonstrates how smart I am.</p>
+
+<p *ngIf="!forecasts?.length"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts.length">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Temperature (&#8451;)</th>
+      <th>Temperature (&#8457;)</th>
+      <th>Pressure (mm/Hg)</th>
+      <th>Humidity (&#37;)</th>
+      <th>Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.date }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.pressure }}</td>
+      <td>{{ forecast.humidity }}</td>
+      <td>{{ forecast.summary }}</td>
+    </tr>
+  </tbody>
+</table>

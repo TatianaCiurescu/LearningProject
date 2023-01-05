@@ -1,0 +1,26 @@
+<h1 id="tableLabel">School</h1>
+
+<p>Welcome To Our School</p>
+
+<p *ngIf="!outputs?.length"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="outputs.length">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Number Of Students</th>
+      <th>Grades</th>
+      <th>Teacher</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let output of outputs">
+      <td>{{ output.date }}</td>
+      <td>{{ output.numberOfStudents }}</td>
+      <td>{{ output.grade }}</td>
+      <td>{{ output.teacher }}</td>
+      <td>{{ output.class }}</td>
+    </tr>
+  </tbody>
+</table>

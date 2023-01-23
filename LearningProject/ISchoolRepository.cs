@@ -1,7 +1,9 @@
-﻿namespace LearningProject
+﻿using LearningProject.Models;
+
+namespace LearningProject
 {
     public interface ISchoolRepository
     {
-        IEnumerable<School> GetAll();
+        Task<IEnumerable<School>> GetAll();
     }
 }

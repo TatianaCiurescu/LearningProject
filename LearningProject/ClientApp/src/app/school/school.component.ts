@@ -18,7 +18,7 @@ export class SchoolComponent {
 interface School {
   date: string;
   numberOfStudents: number;
-  grade: number;
+  grade: string;
   teacher: string;
   class: string;
 }

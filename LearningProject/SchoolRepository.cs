@@ -1,29 +1,24 @@
 ﻿
+using LearningProject.Data;
+using LearningProject.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace LearningProject
 {
     public class SchoolRepository : ISchoolRepository
     {
-        private static readonly string[] Classes = new[]
-        {
-        "Math", "Science","Arts", "English", "Foreign Languages", "Philosophy", "Music"
-        };
+      
+        private readonly SchoolContext _context;
 
-        private static readonly string[] Teachers = new[]
+        public SchoolRepository(SchoolContext context)
         {
-            "Victor", "Hugo", "Andrew", "Anna", "Margaret", "Elisabeth", "Ambrose"
-        };
+            _context = context;
+        }
 
-        public IEnumerable<School> GetAll()
+        public async Task<IEnumerable<School>> GetAll()
         {
-            return Enumerable.Range(1, 3).Select(index => new School
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                NumberOfStudents = Random.Shared.Next(0, 30),
-                Grade = Random.Shared.Next(1, 10),
-                Teacher = Teachers[Random.Shared.Next(Teachers.Length)],
-                Class = Classes[Random.Shared.Next(Classes.Length)]
-            })
-           .ToArray();
+            var data =await _context.Schools.ToListAsync();
+            return data;
         }
     }
 }

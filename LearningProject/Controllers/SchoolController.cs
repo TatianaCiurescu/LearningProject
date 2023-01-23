@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LearningProject.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LearningProject.Controllers
 {
@@ -14,9 +15,9 @@ namespace LearningProject.Controllers
 
 
         [HttpGet]      
-        public IEnumerable<School> Get()
+        public async Task<IEnumerable<School>> Get()
         {
-            var schools = _schoolRepository.GetAll();
+            var schools = await _schoolRepository.GetAll();
             return schools;
         }
     }
